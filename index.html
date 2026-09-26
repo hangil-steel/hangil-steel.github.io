@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="(주)한길산업 민성철강 - 철강재 유통 전문. 철근, 각파이프, 형강, 강관, 철판. 경기도 고양시 일산동구 고봉로 632. 고객문의 031-977-7725">
+<meta name="keywords" content="한길산업, 민성철강, 철강재, 철근, 각파이프, 형강, 강관, 철판, 고양시 철강, 일산 철강">
+<meta property="og:title" content="(주)한길산업 민성철강">
+<meta property="og:description" content="철강재 유통 전문 - 경기도 고양시 일산동구 고봉로 632 / 031-977-7725">
+<meta property="og:image" content="images/photo_0.jpg">
+<title>(주)한길산업 민성철강</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1b6fd6;
+    --navy: #0e2b4b;
+    --yellow: #f7e000;
+    --text: #333;
+    --muted: #666;
+    --line: #bfbfbf;
+    --bg: #fff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .container { width: 1200px; max-width: 97%; margin: 0 auto; }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    background: #fff; border-bottom: 1px solid #ddd;
+  }
+  nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px 16px; padding: 12px 0;
+  }
+  nav .brand { font-weight: 900; font-size: 1.25rem; color: var(--navy); }
+  nav .brand small { font-weight: 500; color: var(--muted); margin-left: 6px; font-size: .85rem; }
+  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; align-items: center; }
+  nav li a { font-weight: 500; color: var(--text); }
+  nav li a:hover { color: var(--blue); }
+  nav .naver {
+    display: inline-block; width: 27px; height: 27px; border-radius: 4px;
+    background: #03c75a; color: #fff; font-weight: 900; text-align: center;
+    line-height: 27px; font-size: 15px; font-family: Arial, sans-serif;
+  }
+
+  /* hero */
+  .hero {
+    position: relative; min-height: 620px; height: 78vh; max-height: 860px;
+    background: url("images/photo_0.jpg") center/cover no-repeat;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: #fff; text-align: center; padding: 60px 16px 220px;
+  }
+  .hero::before { content: ""; position: absolute; inset: 0; background: rgba(10, 30, 60, .55); }
+  .hero > * { position: relative; }
+  .hero .title { border-top: 4px solid var(--yellow); padding-top: 24px; }
+  .hero h1, .hero p { margin: 0; line-height: 1.25; }
+  .hero .t1 { font-size: clamp(20px, 14px + 2.5vw, 48px); font-weight: 500; }
+  .hero .t2 { font-size: clamp(30px, 28px + 2.5vw, 66px); font-weight: 900; }
+  .hero .t3 { font-size: clamp(14px, 8px + 1vw, 24px); font-weight: 400; opacity: .85; margin-top: 14px; }
+  .hero .cta {
+    position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+    display: flex; gap: 24px; width: min(520px, 92%);
+  }
+  .hero .cta a {
+    flex: 1; padding: 28px 16px 32px; text-align: center; border-radius: 16px 16px 0 0;
+    background: #f5f7fa; color: var(--navy); font-weight: 700; font-size: 1.25rem;
+  }
+  .hero .cta .icon { font-size: 2rem; display: block; margin-bottom: 4px; }
+  .hero .cta .val {
+    display: block; margin: 14px auto 0; max-width: 360px; padding: 8px 14px;
+    background: var(--navy); color: #fff; font-size: 1.1rem; border-radius: 4px;
+    overflow-wrap: anywhere;
+  }
+
+  /* section title (reference: h2 on a horizontal line) */
+  .section { padding: 70px 0 40px; }
+  .stitle {
+    text-align: center; background: linear-gradient(#000, #000) 50% 35% / 100% 1px no-repeat;
+    margin-bottom: 40px;
+  }
+  .stitle h2 {
+    display: inline-block; margin: 0; padding: 0 25px; background: #fff;
+    font-size: 40px; font-weight: 500; color: var(--navy);
+  }
+
+  /* products */
+  .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 24px; text-align: center; }
+  .products figure { margin: 0; }
+  .products .circle {
+    width: 200px; height: 200px; margin: 0 auto 16px; border-radius: 50%;
+    background: var(--blue); overflow: hidden; display: flex; align-items: center;
+    justify-content: center; color: #fff; font-size: 56px; font-weight: 900;
+    box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  }
+  .products .circle img { width: 100%; height: 100%; object-fit: cover; }
+  .products figcaption { font-size: 1.5rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  .products figcaption small { display: block; font-size: 1rem; font-weight: 400; color: var(--muted); }
+
+  /* split panels (reference: quote.png / info.png) */
+  .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 380px; }
+  .split .pic { margin: 0; }
+  .split .pic img { width: 100%; height: 100%; object-fit: cover; }
+  .split .txt { padding: 56px 8%; display: flex; flex-direction: column; justify-content: center; }
+  .split .txt h3 {
+    font-size: 2.1rem; margin: 0 0 18px; padding-bottom: 18px;
+    border-bottom: 2px solid currentColor; display: inline-block; color: var(--navy);
+  }
+  .split .txt p { margin: 0; font-size: 1.15rem; color: #444; }
+  .split.blue { background: var(--blue); color: #fff; }
+  .split.blue .txt h3, .split.blue .txt p { color: #fff; }
+
+  /* gallery */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .gallery .pic img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+
+  /* clickable photo + contact bubble */
+  .pic { position: relative; cursor: pointer; }
+  .pic::after {
+    content: "클릭하여 문의하기"; position: absolute; right: 10px; bottom: 10px;
+    background: rgba(0,0,0,.6); color: #fff; font-size: .8rem; padding: 3px 8px; border-radius: 4px;
+    pointer-events: none;
+  }
+  .products .pic::after { position: static; display: inline-block; margin-top: 8px; }
+  .bubble {
+    display: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    z-index: 10; width: min(320px, 92%); padding: 18px 20px; border-radius: 12px;
+    background: #fff; color: var(--text); text-align: left; cursor: default;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3); font-size: .95rem; line-height: 1.8;
+  }
+  .bubble::before {
+    content: ""; position: absolute; left: 50%; bottom: -10px; margin-left: -10px;
+    border: 10px solid transparent; border-top-color: #fff; border-bottom: 0;
+  }
+  .bubble.open { display: block; }
+  .bubble strong { display: block; color: var(--navy); font-size: 1.05rem; margin-bottom: 4px; }
+  .bubble a { color: var(--blue); font-weight: 700; }
+  .bubble .close {
+    position: absolute; top: 6px; right: 10px; border: 0; background: none;
+    font-size: 1.3rem; cursor: pointer; color: #888;
+  }
+  .bubble .call {
+    display: block; margin-top: 10px; padding: 10px; text-align: center; border-radius: 6px;
+    background: var(--blue); color: #fff;
+  }
+
+  /* map */
+  .mapwrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
+  .mapwrap iframe { width: 100%; height: 380px; border: 0; border-radius: 8px; }
+  .map_text > div { margin-bottom: 22px; }
+  .map_text dt { font-weight: 700; color: var(--navy); font-size: 1.1rem; }
+  .map_text dd { margin: 4px 0 0; }
+  .map_text .btn {
+    display: inline-block; padding: 10px 18px; border: 2px solid var(--navy); color: var(--navy);
+    font-weight: 700; border-radius: 4px;
+  }
+  .map_text .btn:hover { background: var(--navy); color: #fff; }
+
+  /* footer */
+  footer { background: #222; color: #aaa; padding: 40px 0; font-size: .9rem; margin-top: 60px; }
+  footer ul { list-style: none; padding: 0; margin: 0 0 14px; }
+  footer ul a { color: #fff; font-weight: 700; }
+  footer p { margin: 0 0 8px; line-height: 1.9; }
+  footer span { color: #777; }
+
+  @media (max-width: 991px) {
+    .products .circle { width: 160px; height: 160px; }
+  }
+  @media (max-width: 767px) {
+    .hero { min-height: 520px; height: 70vh; padding-bottom: 150px; }
+    .hero .cta { flex-direction: column; gap: 10px; }
+    .hero .cta a { padding: 18px 12px; font-size: 1.05rem; border-radius: 12px; }
+    .hero .cta .icon { display: none; }
+    .stitle h2 { font-size: 30px; }
+    .products, .gallery { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
+    .products .circle { width: 130px; height: 130px; font-size: 36px; }
+    .products figcaption { font-size: 1.15rem; }
+    .split { grid-template-columns: 1fr; }
+    .split .pic img { height: 240px; }
+    .split .txt { padding: 36px 6%; }
+    .split .txt h3 { font-size: 1.6rem; }
+    .mapwrap { grid-template-columns: 1fr; }
+    nav ul { gap: 14px; font-size: .95rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="brand" href="#">(주)한길산업 <small>민성철강</small></a>
+    <ul>
+      <li><a href="#products">취급품목</a></li>
+      <li><a href="#about">회사소개</a></li>
+      <li><a href="#map">찾아오시는길</a></li>
+      <li><a class="naver" href="https://m.place.naver.com/place/31621859/home" target="_blank" rel="noopener" title="네이버 플레이스">N</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="title">
+    <h1 class="t1">철강재 유통 전문</h1>
+    <h1 class="t2">(주)한길산업 민성철강</h1>
+    <p class="t3">철근 · 각파이프 · 형강 · 강관 · 철판을 신속하고 정확하게 공급합니다.</p>
+    <p class="t3">정직한 가격, 믿을 수 있는 품질로 언제나 함께 하겠습니다.</p>
+  </div>
+  <div class="cta">
+    <a href="tel:010-9003-4271"><span class="icon">📞</span>전화문의<span class="val">010-9003-4271</span></a>
+  </div>
+</header>
+
+<section class="section" id="products">
+  <div class="container">
+    <div class="stitle"><h2>취급품목</h2></div>
+    <div class="products">
+      <figure class="pic"><div class="circle"><img src="images/photo_1.jpg" alt="철근"></div><figcaption>철근<small>이형철근 · 규격별</small></figcaption></figure>
+      <figure class="pic"><div class="circle"><img src="images/photo_3.jpg" alt="각파이프"></div><figcaption>각파이프<small>각관 · 사각파이프</small></figcaption></figure>
+      <figure class="pic"><div class="circle"><img src="images/rebar_close.jpg" alt="중고 철근"></div><figcaption>중고 철강재 매입<small>고가 매입</small></figcaption></figure>
+      <figure class="pic"><div class="circle"><img src="images/truck_rebar.jpg" alt="철근을 실은 트럭" style="object-position:35% 50%"></div><figcaption>현장배송<small>수도권 신속 배송</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="split">
+    <figure class="pic"><img src="images/photo_2.jpg" alt="민성철강 공장 외부"></figure>
+    <div class="txt">
+      <h3>신속 · 정확한 납품</h3>
+      <p>고양시 일산동구 자체 야적장과 창고에서 철근, 각파이프, 형강 등 다양한 철강재를 상시 보유하고 있어 필요한 규격을 빠르게 공급해 드립니다.</p>
+    </div>
+  </div>
+  <div class="split blue">
+    <div class="txt">
+      <h3>정직한 거래</h3>
+      <p>오랜 기간 같은 자리에서 철강재를 유통해 왔습니다. 투명한 가격과 믿을 수 있는 품질로 앞으로도 정직하게 언제나 함께 하겠습니다.</p>
+    </div>
+    <figure class="pic"><img src="images/photo_1.jpg" alt="민성철강 창고 내부 철근 재고"></figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="stitle"><h2>사업장 사진</h2></div>
+    <div class="gallery">
+      <figure class="pic"><img src="images/photo_0.jpg" alt="공장 전경"></figure>
+      <figure class="pic"><img src="images/photo_1.jpg" alt="철근 재고와 천장 크레인"></figure>
+      <figure class="pic"><img src="images/photo_2.jpg" alt="공장 측면"></figure>
+      <figure class="pic"><img src="images/photo_3.jpg" alt="각파이프 재고"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="map">
+  <div class="container">
+    <div class="stitle"><h2>찾아오시는길</h2></div>
+    <div class="mapwrap">
+      <iframe src="https://www.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84+%EA%B3%A0%EC%96%91%EC%8B%9C+%EC%9D%BC%EC%82%B0%EB%8F%99%EA%B5%AC+%EA%B3%A0%EB%B4%89%EB%A1%9C+632&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="지도"></iframe>
+      <dl class="map_text">
+        <div><dt>주소</dt><dd>경기도 고양시 일산동구 고봉로 632 (성석동 1231)</dd></div>
+        <div><dt>고객문의</dt><dd><a href="tel:031-977-7725">031-977-7725</a></dd></div>
+        <div><dt>FAX</dt><dd>031-977-7726</dd></div>
+        <div><dt>E-mail</dt><dd><a href="mailto:jwjw9511@naver.com">jwjw9511@naver.com</a></dd></div>
+        <div><a class="btn" href="https://map.naver.com/p/entry/place/31621859" target="_blank" rel="noopener">네이버 지도에서 보기</a></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <ul><li><a href="#" id="consult">상담신청</a></li></ul>
+    <p>
+      한길산업 주식회사 - 철강재| 대표 : 이진우 | 주소 : 경기도 고양시 일산동구 고봉로 632<br>
+      고객문의 : 031-977-7725 | FAX : 031-977-7726 |<br>
+      E-mail : jwjw9511@naver.com<br>
+      사업자등록번호 : 434-88-01248 |
+    </p>
+    <span>COPYRIGHTⓒ 2020 EHK ALL RIGHT RESERVED.</span>
+  </div>
+</footer>
+
+<!-- one shared contact bubble, moved into whichever photo was clicked -->
+<div class="bubble" id="bubble" role="dialog" aria-label="문의하기">
+  <button class="close" type="button" aria-label="닫기">×</button>
+  <strong>(주)한길산업 민성철강</strong>
+  전화 : <a href="tel:010-9003-4271">010-9003-4271</a><br>
+  사무실 : <a href="tel:031-977-7725">031-977-7725</a> / FAX : 031-977-7726<br>
+  이메일 : <a href="mailto:jwjw9511@naver.com">jwjw9511@naver.com</a><br>
+  주소 : 경기도 고양시 일산동구 고봉로 632
+  <a class="call" href="tel:010-9003-4271">📞 전화 걸기</a>
+</div>
+
+<script>
+  // ponytail: one shared bubble re-parented on click instead of one per figure.
+  const bubble = document.getElementById('bubble');
+  const close = () => bubble.classList.remove('open');
+  document.querySelectorAll('.pic').forEach(fig => fig.addEventListener('click', e => {
+    e.stopPropagation();
+    if (bubble.parentElement === fig && bubble.classList.contains('open')) return close();
+    fig.append(bubble);
+    bubble.classList.add('open');
+  }));
+  bubble.addEventListener('click', e => e.stopPropagation());
+  bubble.querySelector('.close').addEventListener('click', close);
+  document.addEventListener('click', close);
+  document.addEventListener('keydown', e => e.key === 'Escape' && close());
+  document.getElementById('consult').addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    const target = document.querySelector('.gallery .pic');
+    target.scrollIntoView({ block: 'center' });
+    target.click();
+  });
+</script>
+</body>
+</html>
