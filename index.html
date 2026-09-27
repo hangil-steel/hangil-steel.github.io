@@ -125,35 +125,14 @@
   .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .gallery .pic img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
 
-  /* clickable photo + contact bubble */
+  /* clickable photo: tap to call */
   .pic { position: relative; cursor: pointer; }
   .pic::after {
-    content: "클릭하여 문의하기"; position: absolute; right: 10px; bottom: 10px;
+    content: "클릭하면 전화 연결"; position: absolute; right: 10px; bottom: 10px;
     background: rgba(0,0,0,.6); color: #fff; font-size: .8rem; padding: 3px 8px; border-radius: 4px;
     pointer-events: none;
   }
   .products .pic::after { position: static; display: inline-block; margin-top: 8px; }
-  .bubble {
-    display: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-    z-index: 10; width: min(320px, 92%); padding: 18px 20px; border-radius: 12px;
-    background: #fff; color: var(--text); text-align: left; cursor: default;
-    box-shadow: 0 10px 30px rgba(0,0,0,.3); font-size: .95rem; line-height: 1.8;
-  }
-  .bubble::before {
-    content: ""; position: absolute; left: 50%; bottom: -10px; margin-left: -10px;
-    border: 10px solid transparent; border-top-color: #fff; border-bottom: 0;
-  }
-  .bubble.open { display: block; }
-  .bubble strong { display: block; color: var(--navy); font-size: 1.05rem; margin-bottom: 4px; }
-  .bubble a { color: var(--blue); font-weight: 700; }
-  .bubble .close {
-    position: absolute; top: 6px; right: 10px; border: 0; background: none;
-    font-size: 1.3rem; cursor: pointer; color: #888;
-  }
-  .bubble .call {
-    display: block; margin-top: 10px; padding: 10px; text-align: center; border-radius: 6px;
-    background: var(--blue); color: #fff;
-  }
 
   /* map */
   .mapwrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: start; }
@@ -280,7 +259,7 @@
 
 <footer>
   <div class="container">
-    <ul><li><a href="#" id="consult">상담신청</a></li></ul>
+    <ul><li><a href="#" data-phone>상담신청</a></li></ul>
     <p>
       한길산업 주식회사 - 철강재| 대표 : 이진우 | 주소 : 경기도 고양시 일산동구 고봉로 632<br>
       고객문의 : 031-977-7725 | FAX : 031-977-7726 |<br>
@@ -291,44 +270,14 @@
   </div>
 </footer>
 
-<!-- one shared contact bubble, moved into whichever photo was clicked -->
-<div class="bubble" id="bubble" role="dialog" aria-label="문의하기">
-  <button class="close" type="button" aria-label="닫기">×</button>
-  <strong>(주)한길산업 민성철강</strong>
-  전화 : <a href="#" data-phone="show">010-9003-4271</a><br>
-  사무실 : <a href="tel:031-977-7725">031-977-7725</a> / FAX : 031-977-7726<br>
-  이메일 : <a href="mailto:jwjw9511@naver.com">jwjw9511@naver.com</a><br>
-  주소 : 경기도 고양시 일산동구 고봉로 632
-  <a class="call" href="#" data-phone>📞 전화 걸기</a>
-</div>
 
 <script>
-  // 전화 문의: 페이지를 열 때마다 두 번호 중 하나를 50:50으로 고르고, 카드와 말풍선 모두 그 번호로 건다.
+  // 전화 문의: 페이지를 열 때마다 두 번호 중 하나를 50:50으로 고르고, 모든 전화 링크와 사진 클릭이 그 번호로 건다.
   const phone = ['010-9003-4271', '010-4606-8118'][Math.random() < 0.5 ? 0 : 1];
-  document.querySelectorAll('[data-phone]').forEach(a => {
-    a.href = 'tel:' + phone;
-    if (a.dataset.phone === 'show') a.textContent = phone;
-  });
+  document.querySelectorAll('[data-phone]').forEach(a => a.href = 'tel:' + phone);
 
-  // ponytail: one shared bubble re-parented on click instead of one per figure.
-  const bubble = document.getElementById('bubble');
-  const close = () => bubble.classList.remove('open');
-  document.querySelectorAll('.pic').forEach(fig => fig.addEventListener('click', e => {
-    e.stopPropagation();
-    if (bubble.parentElement === fig && bubble.classList.contains('open')) return close();
-    fig.append(bubble);
-    bubble.classList.add('open');
-  }));
-  bubble.addEventListener('click', e => e.stopPropagation());
-  bubble.querySelector('.close').addEventListener('click', close);
-  document.addEventListener('click', close);
-  document.addEventListener('keydown', e => e.key === 'Escape' && close());
-  document.getElementById('consult').addEventListener('click', e => {
-    e.preventDefault(); e.stopPropagation();
-    const target = document.querySelector('.gallery .pic');
-    target.scrollIntoView({ block: 'center' });
-    target.click();
-  });
+  // 사진 클릭 = 바로 전화
+  document.querySelectorAll('.pic').forEach(fig => fig.addEventListener('click', () => location.href = 'tel:' + phone));
 </script>
 </body>
 </html>
