@@ -217,7 +217,7 @@
     <p class="t3">정직한 가격, 믿을 수 있는 품질로 언제나 함께 하겠습니다.</p>
   </div>
   <div class="cta">
-    <a href="tel:010-9003-4271"><span class="icon">📞</span>전화문의<span class="val">010-9003-4271</span></a>
+    <a href="#" data-phone><span class="icon">📞</span>전화문의<span class="val">클릭하면 바로 연결됩니다</span></a>
   </div>
 </header>
 
@@ -295,14 +295,21 @@
 <div class="bubble" id="bubble" role="dialog" aria-label="문의하기">
   <button class="close" type="button" aria-label="닫기">×</button>
   <strong>(주)한길산업 민성철강</strong>
-  전화 : <a href="tel:010-9003-4271">010-9003-4271</a><br>
+  전화 : <a href="#" data-phone="show">010-9003-4271</a><br>
   사무실 : <a href="tel:031-977-7725">031-977-7725</a> / FAX : 031-977-7726<br>
   이메일 : <a href="mailto:jwjw9511@naver.com">jwjw9511@naver.com</a><br>
   주소 : 경기도 고양시 일산동구 고봉로 632
-  <a class="call" href="tel:010-9003-4271">📞 전화 걸기</a>
+  <a class="call" href="#" data-phone>📞 전화 걸기</a>
 </div>
 
 <script>
+  // 전화 문의: 페이지를 열 때마다 두 번호 중 하나를 50:50으로 고르고, 카드와 말풍선 모두 그 번호로 건다.
+  const phone = ['010-9003-4271', '010-4606-8118'][Math.random() < 0.5 ? 0 : 1];
+  document.querySelectorAll('[data-phone]').forEach(a => {
+    a.href = 'tel:' + phone;
+    if (a.dataset.phone === 'show') a.textContent = phone;
+  });
+
   // ponytail: one shared bubble re-parented on click instead of one per figure.
   const bubble = document.getElementById('bubble');
   const close = () => bubble.classList.remove('open');
